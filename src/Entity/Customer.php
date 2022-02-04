@@ -24,6 +24,9 @@ class Customer
     #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Project::class, orphanRemoval: true)]
     private $projects;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $imageUrl;
+
     public function __construct()
     {
         $this->projects = new ArrayCollection();
@@ -86,5 +89,21 @@ class Customer
         }
 
         return $this;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(?string $imageUrl): self
+    {
+        $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    public function __toString() {
+        return $this->name;
     }
 }

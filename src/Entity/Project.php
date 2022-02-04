@@ -18,7 +18,7 @@ class Project
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'text', length: 255)]
     private $description;
 
     #[ORM\Column(type: 'date')]
@@ -181,5 +181,9 @@ class Project
         $this->customer = $customer;
 
         return $this;
+    }
+
+    public function __toString() {
+        return $this->name;
     }
 }

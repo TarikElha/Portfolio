@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index{% endblock %}
+
+{% block body %}
+    <h1>Projets</h1>
+        {% for project in projects %}
+            <div class="main">
+                <div class="imageProject">
+                    <a href="{{ path('project_show', { id : project.id }) }}">
+                        <img src="{{ asset(project.gallery|first.url) }}" alt="{{ project.gallery|first.name }}"/>
+                    </a>
+                </div>
+                <div class="titleProject">
+                    {{ project.name }}
+                </div>
+                <a href="{{ path('project_show', {'id': project.id}) }}">show</a>
+                <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
+            </div>
+        {% else %}
+                <p>Aucun projet à visualiser.<p>
+        {% endfor %}
+    <a href="{{ path('project_new') }}">Create new</a>
+{% endblock %}
