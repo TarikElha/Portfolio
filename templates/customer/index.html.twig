@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block body %}
+    <h1 class="titleProject">Voici les clients liés à mes projets</h1>
+        {% for customer in customers %}
+            <div class="main">
+                <div class="imageProject">
+                    <a href="{{ customer.url }}">
+                        <img src="{{ asset(customer.imageUrl) }}" alt="{{ customer.name }}"/>
+                    </a>
+                </div>
+                <h2 class="titleProject">{{ customer.name }}</h2>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

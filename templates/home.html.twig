@@ -1,8 +1,22 @@
 {% extends "base.html.twig" %}
 {% block title %}Portfolio{% endblock %}
 {% block body %}
-    <h1>Bienvenue</h1>
+    <div class="homeHeader">
+        <img src="{{ asset('build/images/photo-portrait.png') }}" alt="Photo de profil de Tarik EL HANTITI"/>
+        <div class="title">
+            <h1>Hello.<br>I'm Tarik.</h1>
+            <h3>Développeur web</h2>
+        </div>
+    </div>
+    <div class="toolHome">
+        {% for tool in tools %}
+            <img src="{{ asset(tool.imageUrl) }}" alt="{{ tool.name }}"/>
+        {% endfor %}
+    </div>
+    <div class="main">
+        <p class="homeText">
+            Je suis développeur web full-stack spécialisé en back-end.<br>
+            N'hésitez-pas à consulter mes projets et mon compte GitHub.
+        </p>
+    </div>
 {% endblock %}
-
-{#  assets/images/logo.png was copied to public/build/images/logo.png
-    <img src="{{ asset('build/images/logo.png') }}" alt="ACME logo"> #}

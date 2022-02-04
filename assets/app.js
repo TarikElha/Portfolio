@@ -10,3 +10,13 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+let menuIcon = document.querySelector(".dropbtn");
+
+menuIcon.addEventListener("mouseover", function( event ) {
+    menuIcon.firstChild.className = "fas fa-angle-double-down";
+});
+
+menuIcon.addEventListener("mouseout", function( event ) {
+    menuIcon.firstChild.className = "fas fa-angle-double-right";
+});
